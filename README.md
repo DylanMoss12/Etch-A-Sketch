@@ -1,0 +1,1 @@
+This project will be focusing on creating an Etch-A-Sketch to develop my CSS and JavaScript skills.
