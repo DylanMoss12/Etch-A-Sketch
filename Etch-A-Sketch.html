@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        #container {
+            display: flex;
+            width: 960px;
+            height: 960px;
+            flex-wrap: wrap;
+            border-style: solid;
+            border-width: 2px;
+            border-color: black;
+            margin-top: 5px;
+            };
+    </style>
+
+    <body>
+        <button id="reset">Reset</button>
+        <div id="container"></div>
+    </body>
+
+    <script>
+        const container = document.querySelector('#container');
+        let num = 16;
+        
+        gridCreate();
+
+        function gridCreate () {
+            for(i = 0; i < (num ** 2); i++) {
+                    let div = document.createElement("div");
+                    div.addEventListener('mouseenter', () => {
+                        div.style.backgroundColor = 'black';
+                    });
+                    div.style.width = `${(100/num)}%`;
+                    document.getElementById('container').appendChild(div);
+                };
+        };
+
+        const reset = document.querySelector('#reset');
+        reset.addEventListener('click', () => {
+            gridRemove();
+            num = (prompt('Enter a number for the box dimension'));
+            gridCreate();
+        });
+        
+        function gridRemove() {
+            for(i = 0; i < (num ** 2); i++) {
+               container.removeChild(container.firstChild); 
+            };
+        };
+    </script>
+</html>
